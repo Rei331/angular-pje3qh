@@ -10,6 +10,9 @@
       </h3>
       <p *ngIf="produit.id > 1">Description: {{produit.description}}</p>
       <button type="button"  (click)="share()">Share</button>
+      <app-product-alerts
+        [product]="produit">
+    </app-product-alerts>
       </li>
 </ul>
 
