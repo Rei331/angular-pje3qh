@@ -3,15 +3,21 @@
 <ul>
     <li 
       *ngFor="let produit of products" 
-      [title]="produit.description">
-      <h3
-        [class.cher]="produit.price > 500">
-        {{produit.name}}
+      >
+      <h3>
+        <a
+          [title]="produit.name + 'details'"
+          [routerLink]= "['/products', produit.id]"
+        >
+          {{produit.name}}
+        </a>
       </h3>
       <p *ngIf="produit.id > 1">Description: {{produit.description}}</p>
       <button type="button"  (click)="share()">Share</button>
-      <app-product-alerts
-        [product]="produit">
+      <app-product-alerts 
+        [product]="produit"
+        (notify)="onNotify()"
+        >
     </app-product-alerts>
       </li>
 </ul>
