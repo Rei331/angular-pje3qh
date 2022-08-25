@@ -1,5 +1,17 @@
-<h2>Products</h2>
-
+<h2>Produits</h2>
+<p>Nous avons pleins de produits woot</p>
+<ul>
+    <li 
+      *ngFor="let produit of products" 
+      [title]="produit.description">
+      <h3
+        [class.cher]="produit.price > 500">
+        {{produit.name}}
+      </h3>
+      <p *ngIf="produit.id > 1">Description: {{produit.description}}</p>
+      <button type="button" (click)="share()">Share</button>
+      </li>
+</ul>
 
 <!-- 
 Copyright Google LLC. All Rights Reserved.
